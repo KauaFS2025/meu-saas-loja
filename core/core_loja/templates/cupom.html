@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cupom Fiscal - {{ empresa.nome }}</title>
+    <style>
+        body { 
+            background: #e0e0e0; 
+            display: flex; 
+            justify-content: center; 
+            padding: 20px; 
+            font-family: 'Courier New', Courier, monospace;
+        }
+        .cupom { 
+            background: #fffae6; 
+            padding: 20px; 
+            width: 320px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
+            color: #000; 
+            font-size: 14px;
+        }
+        .text-center { text-align: center; }
+        .dashed-line { border-top: 1px dashed #000; margin: 12px 0; }
+        .bold { font-weight: bold; }
+        
+        .btn-imprimir { 
+            margin-top: 20px; 
+            width: 100%; 
+            padding: 12px; 
+            background: #2d1b2e; 
+            color: #fff; 
+            border: none; 
+            cursor: pointer; 
+            font-weight: bold; 
+            text-transform: uppercase;
+        }
+        .btn-imprimir:hover { background: #4a2c4c; }
+        .btn-voltar {
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            color: #2d1b2e;
+            text-decoration: none;
+            font-size: 12px;
+        }
+
+        @media print { 
+            .btn-imprimir, .btn-voltar { display: none !important; } 
+            body { background: #fff; padding: 0; align-items: flex-start; } 
+            .cupom { box-shadow: none; width: 100%; margin: 0; padding: 0; background: #fff; } 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="cupom">
+        <div class="text-center bold" style="font-size: 1.4em;">{{ empresa.nome }}</div>
+        <div class="text-center">CNPJ: 00.000.000/0001-00</div>
+        <div class="text-center" style="margin-top: 5px;">CUPOM NÃO FISCAL</div>
+        
+        <div class="dashed-line"></div>
+        
+        <div><span class="bold">Data:</span> {{ venda.data_venda|date:"d/m/Y H:i:s" }}</div>
+        <div><span class="bold">Cliente:</span> {{ venda.cliente.nome|default:"Consumidor Final" }}</div>
+        {% if venda.cliente.cpf %}
+            <div><span class="bold">CPF:</span> {{ venda.cliente.cpf }}</div>
+        {% endif %}
+        <div><span class="bold">Pagamento:</span> {{ venda.get_metodo_pagamento_display }}</div>
+        
+        <div class="dashed-line"></div>
+        
+        <div class="bold">ITEM / QTD / VALOR UNIT.</div>
+        
+        {% for item in venda.itens.all %}
+        <div style="display: flex; justify-content: space-between; margin-top: 5px;">
+            <span style="max-width: 60%;">{{ item.produto.nome }} (x{{ item.quantidade }})</span>
+            <span>R$ {{ item.preco_unitario }}</span>
+        </div>
+        {% endfor %}
+        
+        <div class="dashed-line"></div>
+        
+        <div style="display: flex; justify-content: space-between; font-size: 1.2em;" class="bold">
+            <span>TOTAL:</span>
+            <span>R$ {{ venda.valor_total }}</span>
+        </div>
+        
+        <div class="dashed-line"></div>
+        
+        <div class="text-center" style="font-size: 0.9em; margin-top: 15px;">
+            Agradecemos a preferência!<br>
+            Que a magia te acompanhe. ✨
+        </div>
+
+        <button class="btn-imprimir" onclick="window.print()">🖨️ Imprimir Cupom</button>
+        <a href="/loja/{{ empresa.id }}/" class="btn-voltar">Voltar para a Loja</a>
+    </div>
+
+</body>
+</html>

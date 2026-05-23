@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+    <nav class="flex text-[12px] text-gray-500 mb-8 items-center gap-2">
+        <a class="hover:text-plum-nav" href="#">Home</a>
+        <span class="material-symbols-outlined text-[10px]">chevron_right</span>
+        <a class="hover:text-plum-nav" href="#">Estatuetas</a>
+        <span class="material-symbols-outlined text-[10px]">chevron_right</span>
+        <span class="text-gray-400">Deuses</span>
+    </nav>
+
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-4">
+        <h1 class="font-headline-md text-headline-md text-gray-800">Estoque de Relíquias</h1>
+        <div class="flex items-center gap-4">
+            <a href="/loja/{{ empresa.id }}/novo-produto/" class="bg-plum-nav text-white px-4 py-2 text-sm rounded-sm flex items-center gap-2 cursor-pointer hover:brightness-125 transition-all">
+                <span class="material-symbols-outlined text-xs">add</span>
+                <span>Adicionar Item</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-16">
+        {% for produto in produtos %}
+        <div class="flex flex-col items-center text-center group">
+            <div class="w-full aspect-[4/5] bg-gray-50 flex flex-col items-center justify-center mb-6 overflow-hidden relative border border-gray-100">
+                {% if produto.imagem %}
+                    <img src="{{ produto.imagem.url }}" alt="{{ produto.nome }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                {% else %}
+                    <span class="material-symbols-outlined text-6xl text-gray-300 group-hover:scale-110 transition-transform duration-500">diamond</span>
+                {% endif %}
+                <p class="text-[10px] text-gray-800 bg-white/80 backdrop-blur-sm px-2 py-1 tracking-widest uppercase absolute top-4 shadow-sm">Cód. {{ produto.id }}</p>
+                <p class="text-[10px] text-white bg-plum-nav/90 px-2 py-1 tracking-widest uppercase absolute bottom-4 shadow-sm">Estoque: {{ produto.estoque }}</p>
+            </div>
+            
+            <h3 class="font-headline-sm text-lg text-gray-800 mb-4 h-12 flex items-center justify-center">{{ produto.nome }}</h3>
+            
+            <div class="mb-2">
+                <p class="font-bold text-2xl text-gray-900">R$ {{ produto.preco }}</p>
+                <p class="text-[12px] text-gray-500 uppercase tracking-tighter">Item exclusivo</p>
+            </div>
+            
+            <a href="/loja/{{ empresa.id }}/nova-venda/" class="mt-4 w-full py-3 bg-plum-nav text-white font-bold text-sm tracking-widest uppercase hover:brightness-125 transition-all text-center block">
+                Vender
+            </a>
+            
+            <a href="/loja/{{ empresa.id }}/atualizar-estoque/{{ produto.id }}/" class="mt-3 text-[10px] text-gray-400 hover:text-plum-nav uppercase tracking-widest flex items-center gap-1 justify-center transition-colors">
+                <span class="material-symbols-outlined text-[12px]">edit</span>
+                Editar Artefato
+            </a>
+        </div>
+        {% empty %}
+        <div class="col-span-1 md:col-span-2 lg:col-span-3 text-center py-20 border border-dashed border-gray-300">
+            <p class="text-gray-500 font-headline-sm">O salão está vazio. Nenhum artefato foi encontrado.</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <section class="mt-40">
+        <div class="mystic-divider mb-20"></div>
+        <div class="grid grid-cols-12 gap-gutter h-auto md:h-[500px]">
+            <div class="col-span-12 md:col-span-8 bg-gray-50 border border-gray-100 p-12 flex flex-col justify-center">
+                <h2 class="font-display-lg text-display-lg text-plum-nav mb-6 uppercase">A Tradição do Caldeirão</h2>
+                <p class="font-body-lg text-body-lg text-gray-600 max-w-xl mb-8">Nossa curadoria é feita com respeito às tradições ancestrais. Cada item que entra em nosso catálogo passa por um processo de limpeza e consagração energética.</p>
+                <div class="flex gap-12">
+                    <div>
+                        <p class="font-headline-md text-headline-md text-plum-nav">+1500</p>
+                        <p class="font-label-caps text-label-caps text-gray-400">MEMBROS NO CLUBE</p>
+                    </div>
+                    <div>
+                        <p class="font-headline-md text-headline-md text-plum-nav">100%</p>
+                        <p class="font-label-caps text-label-caps text-gray-400">ARTESANAL</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-span-12 md:col-span-4 relative overflow-hidden rounded-sm bg-gray-200">
+                <img alt="Mystic Hands" class="w-full h-full object-cover grayscale brightness-75 mix-blend-multiply" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDejAZkSHkwhB80sFb4h6pCxSp0L5MevnKCwFvA5fBVjLtlRWv7N80tE55aMhzbMnO23RJdcczRp4RrI0IWu4diLzujwRC08A5r5LrpZv9qTzwuy_ytiXjy2Wv6Nzg4yJBEb5yxGmL-AsaDWZKLiCTDoenKsFJrcGuCIhc1qUZGEgbO85KnsgqcZlUAUw15ohRXEjJi_ohJ9VwPjLboc1uc_xWZuPLmX1U_e9j7yNuxJMIEO34sPu_29GPG_8JgkKcRE8GN5Iwbrt9T" onerror="this.style.display='none'">
+                <div class="absolute inset-0 bg-plum-nav/20 mix-blend-multiply"></div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

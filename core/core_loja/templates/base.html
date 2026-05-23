@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-br">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Caldeirão Místico | Boutique Esotérica</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Work+Sans:wght@400;600&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "void-black": "#050505",
+                      "outline": "#99907c",
+                      "pure-white": "#FFFFFF",
+                      "surface": "#131313",
+                      "on-error": "#690005",
+                      "surface-container-low": "#1c1b1b",
+                      "on-tertiary-fixed-variant": "#504252",
+                      "on-surface": "#e5e2e1",
+                      "error": "#ffb4ab",
+                      "on-error-container": "#ffdad6",
+                      "muted-gold": "#8C7323",
+                      "metallic-gold": "#D4AF37",
+                      "primary-fixed-dim": "#e9c349",
+                      "on-primary-container": "#554300",
+                      "surface-container-high": "#2a2a2a",
+                      "surface-container-lowest": "#0e0e0e",
+                      "primary-fixed": "#ffe088",
+                      "surface-container-highest": "#353534",
+                      "secondary-fixed": "#f8d9f9",
+                      "deep-amethyst": "#38243C",
+                      "plum-nav": "#2d1b2e",
+                      "secondary-fixed-dim": "#dbbddd",
+                      "on-secondary-container": "#c9accb",
+                      "tertiary": "#dcc8dd",
+                      "primary": "#f2ca50",
+                      "error-container": "#93000a",
+                      "tertiary-container": "#c0adc1",
+                      "on-secondary": "#3e2941",
+                      "inverse-primary": "#735c00",
+                      "on-tertiary-fixed": "#231726",
+                      "surface-tint": "#e9c349",
+                      "on-tertiary": "#392c3b",
+                      "tertiary-fixed": "#f1dcf1",
+                      "outline-variant": "#4d4635",
+                      "on-surface-variant": "#d0c5af",
+                      "on-primary": "#3c2f00",
+                      "surface-variant": "#353534",
+                      "on-primary-fixed": "#241a00",
+                      "on-secondary-fixed-variant": "#553f59",
+                      "inverse-surface": "#e5e2e1",
+                      "secondary-container": "#553f59",
+                      "background": "#131313",
+                      "on-tertiary-container": "#4e4051",
+                      "tertiary-fixed-dim": "#d4c1d5",
+                      "primary-container": "#d4af37",
+                      "on-primary-fixed-variant": "#574500",
+                      "surface-dim": "#131313",
+                      "surface-bright": "#3a3939",
+                      "inverse-on-surface": "#313030",
+                      "surface-container": "#201f1f",
+                      "secondary": "#dbbddd",
+                      "on-secondary-fixed": "#27142b",
+                      "on-background": "#e5e2e1"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "16px",
+                      "margin-desktop": "64px",
+                      "gutter": "24px",
+                      "base": "8px",
+                      "container-max": "1280px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Playfair Display"],
+                      "label-caps": ["Work Sans"],
+                      "price-tag": ["Work Sans"],
+                      "headline-sm": ["Playfair Display"],
+                      "body-lg": ["Work Sans"],
+                      "display-lg": ["Playfair Display"],
+                      "display-lg-mobile": ["Playfair Display"],
+                      "body-md": ["Work Sans"]
+              },
+              "fontSize": {
+                      "headline-md": ["32px", {"lineHeight": "40px", "letterSpacing": "0.03em", "fontWeight": "600"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.15em", "fontWeight": "600"}],
+                      "price-tag": ["20px", {"lineHeight": "24px", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                      "headline-sm": ["24px", {"lineHeight": "32px", "letterSpacing": "0.03em", "fontWeight": "600"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "letterSpacing": "0.01em", "fontWeight": "400"}],
+                      "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+                      "display-lg-mobile": ["32px", {"lineHeight": "40px", "letterSpacing": "0.02em", "fontWeight": "700"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+              }
+            }
+          }
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            background-color: #ffffff;
+            color: #131313;
+            overflow-x: hidden;
+        }
+        .gloss-effect {
+            background: rgba(26, 15, 29, 0.8);
+            backdrop-filter: blur(20px);
+        }
+        .mystic-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #2d1b2e, transparent);
+            width: 100%;
+            position: relative;
+        }
+        .mystic-divider::after {
+            content: '◆';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #ffffff;
+            padding: 0 10px;
+            color: #2d1b2e;
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md bg-white text-void-black">
+    <header class="bg-white py-6 border-b border-gray-100">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop flex items-center justify-between">
+            <div class="flex-1 flex items-center">
+                <div class="flex items-center border border-gray-300 rounded-sm overflow-hidden w-full max-w-sm">
+                    <input class="flex-1 px-4 py-2 text-sm border-none focus:ring-0 text-gray-700" placeholder="Pesquisar..." type="text"/>
+                    <button class="bg-plum-nav px-4 py-2 flex items-center justify-center">
+                        <span class="material-symbols-outlined text-white text-lg">search</span>
+                    </button>
+                </div>
+            </div>
+            <div class="flex-1 flex justify-center">
+                <img alt="Caldeirão Místico" class="h-24 object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0ugsCzAnx9RBnKP7puTLwN0FoQTjZD0xTI-Lgyto-7z5bAyq6avEG5y85V7rk4E_kKesEKlANBFGHgN6iUvaZegkgMAyAo9tnUbGRXoxjJn28O-ovB70tOZxrLgi25__zazhdaR9A-Qa7pu_gXxQlNWK3_JClZfY8raPY8wl7Oc4KyR19Ch2fGbro90G8wmmHSUwEAGmGeRMWUPRnhXn3IeUFAkiJ2pvGr41CDNeuLgElqBgp1c2tTWSYhuI"/>
+            </div>
+            <div class="flex-1 flex justify-end items-center gap-8">
+                <a class="flex items-center gap-2 group" href="#">
+                    <span class="material-symbols-outlined text-3xl font-light text-gray-800">auto_fix_high</span>
+                    <div class="flex flex-col leading-tight">
+                        <span class="text-[11px] font-bold text-gray-800 uppercase">Criar conta</span>
+                        <span class="text-[11px] text-gray-600 uppercase">Entrar</span>
+                    </div>
+                </a>
+                <a class="flex items-center gap-2 group" href="#">
+                    <span class="material-symbols-outlined text-3xl font-light text-gray-800">shopping_basket</span>
+                    <div class="flex flex-col leading-tight">
+                        <span class="text-[11px] font-bold text-gray-800 uppercase">Carrinho</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <nav class="bg-plum-nav w-full">
+        <div class="max-w-container-max mx-auto px-4 overflow-x-auto">
+            <ul class="flex items-center justify-center whitespace-nowrap">
+                <li>
+                    <a class="flex flex-col items-center gap-1 px-4 py-3 group" href="/loja/{{ empresa.id }}/">
+                        <span class="material-symbols-outlined text-white text-2xl">auto_awesome</span>
+                        <span class="text-[10px] text-white font-bold uppercase tracking-wider">Itens Mágicos</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="flex flex-col items-center gap-1 px-4 py-3 group" href="/loja/{{ empresa.id }}/novo-cliente/">
+                        <span class="material-symbols-outlined text-white text-2xl">ac_unit</span>
+                        <span class="text-[10px] text-white font-bold uppercase tracking-wider">Cadastrar Clientes</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="flex flex-col items-center gap-1 px-4 py-3 group" href="/loja/{{ empresa.id }}/nova-venda/">
+                        <span class="material-symbols-outlined text-white text-2xl">magic_button</span>
+                        <span class="text-[10px] text-white font-bold uppercase tracking-wider">Realizar Venda</span>
+                    </a>
+                </li>
+                <li>
+                    <a class="flex flex-col items-center gap-1 px-4 py-3 group border-b-2 border-white" href="/loja/{{ empresa.id }}/novo-produto/">
+                        <span class="material-symbols-outlined text-white text-2xl">redeem</span>
+                        <span class="text-[10px] text-white font-bold uppercase tracking-wider">Cadastrar Produto e Estoque</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="max-w-container-max mx-auto py-12 px-margin-mobile md:px-margin-desktop">
+        {% block conteudo %}
+        {% endblock %}
+    </main>
+
+    <footer class="bg-gray-50 border-t border-gray-100 w-full mt-20">
+        <div class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center px-margin-desktop py-16 gap-8">
+            <div class="flex flex-col items-center md:items-start">
+                <h2 class="font-headline-sm text-headline-sm text-plum-nav uppercase mb-2">Caldeirão Místico</h2>
+                <p class="font-body-md text-body-md text-gray-500 text-center md:text-left">Despertando o oculto em cada detalhe.</p>
+            </div>
+            <div class="flex gap-8">
+                <a class="font-body-md text-body-md text-gray-600 hover:text-plum-nav transition-all" href="#">Privacidade</a>
+                <a class="font-body-md text-body-md text-gray-600 hover:text-plum-nav transition-all" href="#">Termos</a>
+                <a class="font-body-md text-body-md text-gray-600 hover:text-plum-nav transition-all" href="#">Contato</a>
+                <a class="font-body-md text-body-md text-gray-600 hover:text-plum-nav transition-all" href="#">Envio</a>
+            </div>
+            <div class="text-center md:text-right">
+                <p class="font-body-md text-body-md text-gray-400">© 2024 Caldeirão Místico. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <a class="fixed bottom-6 right-6 bg-[#25D366] text-white p-3 rounded-full shadow-lg hover:scale-110 transition-transform z-50 flex items-center justify-center" href="#">
+        <svg fill="currentColor" height="32" viewbox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"></path>
+        </svg>
+    </a>
+</body>
+</html>
